@@ -88,6 +88,9 @@ mask_registry(){
     fi
 }
 
+env
+cat ~/.npmrc
+
 if [ "${PUBLISH}" = "true" ] ; then
     if [ "${JENKINS_HOME}" ] ; then
         git config user.email || git config --global user.email "info@helidon.io"
