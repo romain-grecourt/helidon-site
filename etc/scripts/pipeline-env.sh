@@ -40,20 +40,20 @@ if [ -n "${JENKINS_HOME}" ] ; then
         MAVEN_ARGS="${MAVEN_ARGS} -Dnpm.download.root=${NPM_CONFIG_REGISTRY}/npm/-/"
     fi
     export MAVEN_ARGS
+    if [ -n "${https_proxy}" ] && [[ ! "${https_proxy}" =~ ^http:// ]] ; then
+        export https_proxy="http://${https_proxy}"
+    fi
+    if [ -n "${http_proxy}" ] && [[ ! "${http_proxy}" =~ ^http:// ]] ; then
+        export http_proxy="http://${http_proxy}"
+    fi
     if [ ! -e "${HOME}/.npmrc" ] ; then
         if [ -n "${NPM_CONFIG_REGISTRY}" ] ; then
             echo "registry = ${NPM_CONFIG_REGISTRY}" >> ${HOME}/.npmrc
         fi
         if [ -n "${https_proxy}" ] ; then
-            if [[ ! "${https_proxy}" =~ ^http:// ]] ; then
-                export https_proxy="http://${https_proxy}"
-            fi
             echo "https-proxy = ${https_proxy}" >> ${HOME}/.npmrc
         fi
         if [ -n "${http_proxy}" ] ; then
-            if [[ ! "${http_proxy}" =~ ^http:// ]] ; then
-                export http_proxy="http://${http_proxy}"
-            fi
             echo "proxy = ${http_proxy}" >> ${HOME}/.npmrc
         fi
         if [ -n "${NO_PROXY}" ] ; then
