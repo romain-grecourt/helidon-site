@@ -76,7 +76,7 @@ readonly WS_DIR=$(cd $(dirname -- "${SCRIPT_PATH}") ; cd ../.. ; pwd -P)
 
 source ${WS_DIR}/etc/scripts/pipeline-env.sh
 
-if [ "${JENKINS_HOME}" = "true" ] ; then
+if [ -n "${JENKINS_HOME}" ] ; then
     rm -rf node_modules
 fi
 
@@ -96,13 +96,13 @@ if [ "${PUBLISH}" = "true" ] ; then
         git config user.email || git config --global user.email "info@helidon.io"
         git config user.name || git config --global user.name "Helidon Robot"
     fi
-    mvn ${MAVEN_ARGS} -f ${WS_DIR}/pom.xml deploy \
+    mvn ${MAVEN_ARGS} -f ${WS_DIR}/pom.xml clean deploy \
         -Ppublish,ossrh-staging | \
-    mask_registry
+        mask_registry
 else
-    mvn ${MAVEN_ARGS} -f ${WS_DIR}/pom.xml install \
+    mvn ${MAVEN_ARGS} -f ${WS_DIR}/pom.xml clean install \
         -Possrh-staging | \
-    mask_registry
+        mask_registry
 fi
 
 tar -zcvf target/site.tar.gz -C target/site .
