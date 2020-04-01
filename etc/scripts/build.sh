@@ -1,4 +1,4 @@
-#!/bin/bash -ex
+#!/bin/bash -e
 #
 # Copyright (c) 2018, 2020 Oracle and/or its affiliates. All rights reserved.
 #
@@ -87,9 +87,6 @@ mask_registry(){
         cat
     fi
 }
-
-env
-cat ~/.npmrc
 
 if [ "${PUBLISH}" = "true" ] ; then
     if [ "${JENKINS_HOME}" ] ; then
