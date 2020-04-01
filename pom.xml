@@ -103,7 +103,7 @@
         <site.output.dir>${project.build.directory}/site</site.output.dir>
         <docs.version>1.4.4</docs.version>
         <version.plugin.glassfish-copyright>2.3</version.plugin.glassfish-copyright>
-        <version.plugin.frontend>1.6</version.plugin.frontend>
+        <version.plugin.frontend>1.9.1</version.plugin.frontend>
         <version.plugin.scm-plugin>3.0.0</version.plugin.scm-plugin>
         <version.plugin.dependency-plugin>3.0.0</version.plugin.dependency-plugin>
         <version.plugin.resources-plugin>3.1.0</version.plugin.resources-plugin>
@@ -199,7 +199,7 @@
                             <goal>npm</goal>
                         </goals>
                         <configuration>
-                            <arguments>install</arguments>
+                            <arguments>-d install</arguments>
                         </configuration>
                     </execution>
                     <execution>
