@@ -42,7 +42,7 @@ if [ -n "${JENKINS_HOME}" ] ; then
     export MAVEN_ARGS
     if [ ! -e "${HOME}/.npmrc" ] ; then
         if [ -n "${NPM_CONFIG_REGISTRY}" ] ; then
-            echo "registry = https://artifacthub-tip.oraclecorp.com/api/npm/npmjs-remote" >> ${HOME}/.npmrc
+            echo "registry = ${NPM_CONFIG_REGISTRY}" >> ${HOME}/.npmrc
         fi
         if [ -n "${https_proxy}" ] ; then
             if [[ ! "${https_proxy}" =~ ^http:// ]] ; then
