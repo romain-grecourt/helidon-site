@@ -82,16 +82,16 @@
     </developers>
 
     <scm>
-        <developerConnection>scm:git:git@github.com:oracle/helidon-site.git</developerConnection>
-        <connection>scm:git:git@github.com:oracle/helidon-site.git</connection>
+        <developerConnection>scm:git:git@github.com:romain-grecourt/helidon-site.git</developerConnection>
+        <connection>scm:git:git@github.com:romain-grecourt/helidon-site.git</connection>
         <tag>HEAD</tag>
-        <url>https://github.com/oracle/helidon-site</url>
+        <url>https://github.com/romain-grecourt/helidon-site</url>
     </scm>
 
     <distributionManagement>
         <site>
             <id>site</id>
-            <url>scm:git:git@github.com:oracle/helidon-site.git</url>
+            <url>scm:git:git@github.com:romain-grecourt/helidon-site.git</url>
         </site>
     </distributionManagement>
 
