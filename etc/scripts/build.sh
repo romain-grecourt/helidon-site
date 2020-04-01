@@ -1,4 +1,4 @@
-#!/bin/bash -ex
+#!/bin/bash -e
 #
 # Copyright (c) 2018, 2020 Oracle and/or its affiliates. All rights reserved.
 #
@@ -94,13 +94,11 @@ if [ "${PUBLISH}" = "true" ] ; then
         git config user.name || git config --global user.name "Helidon Robot"
     fi
     mvn ${MAVEN_ARGS} -f ${WS_DIR}/pom.xml deploy \
-        -Ppublish,ossrh-staging \
-        -Dskip.npm -Dskip.installnodenpm | \
+        -Ppublish,ossrh-staging | \
     mask_registry
 else
     mvn ${MAVEN_ARGS} -f ${WS_DIR}/pom.xml install \
-        -Possrh-staging \
-        -Dskip.npm -Dskip.installnodenpm | \
+        -Possrh-staging | \
     mask_registry
 fi
 

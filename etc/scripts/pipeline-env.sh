@@ -36,6 +36,9 @@ if [ -n "${JENKINS_HOME}" ] ; then
     if [ -n "${MAVEN_SETTINGS_FILE}" ] ; then
         MAVEN_ARGS="${MAVEN_ARGS} -s ${MAVEN_SETTINGS_FILE}"
     fi
+    if [ -n "${NPM_CONFIG_REGISTRY}" ] ; then
+        MAVEN_ARGS="${MAVEN_ARGS} -Dnpm.download.root=${NPM_CONFIG_REGISTRY}/npm/-/"
+    fi
     export MAVEN_ARGS
     if [ ! -e "${HOME}/.npmrc" ] ; then
         if [ -n "${NPM_CONFIG_REGISTRY}" ] ; then
