@@ -27,7 +27,7 @@ pipeline {
         stage('build'){
           when {
             not {
-              branch '**/release-*'
+              branch 'master'
             }
           }
           steps {
