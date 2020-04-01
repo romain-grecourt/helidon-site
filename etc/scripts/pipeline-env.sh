@@ -57,6 +57,11 @@ if [ -n "${JENKINS_HOME}" ] ; then
             echo "proxy = ${http_proxy}" >> ${HOME}/.npmrc
         fi
         if [ -n "${NO_PROXY}" ] ; then
+            NO_PROXY="${NO_PROXY},0.0.0.80"
+        else
+            NO_PROXY="0.0.0.80"
+        fi
+        if [ -n "${http_proxy}" ] || [ -n "${https_proxy}" ] ; then
             echo "noproxy = ${NO_PROXY}" >> ${HOME}/.npmrc
         fi
     fi
